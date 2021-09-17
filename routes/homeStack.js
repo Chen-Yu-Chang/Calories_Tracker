@@ -23,13 +23,27 @@ const HomeStack = () => {
     return(
 
         <NavigationContainer>
-            <Stack.Navigator>   
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyled: {
+                        backgroundColor: 'transparent'
+                    },
+                    headerTintColor: tertiary,
+                    headerTransparent: true,
+                    headerTitle: '',
+                    headerLeftContainerStyle: {
+                        paddingLeft: 20
+                    }
+                    
+                }}
+                initialRouteName="Login"
+            >    
                 <Stack.Screen name ="Login" component={Login} />
                 <Stack.Screen name ="SignUp" component={SignUp} />
                 <Stack.Screen name="Welcome" component={Welcome} /> 
-                <Stack.Screen name="Methods" component={Methods} />
-                <Stack.Screen name="BarcodeScreen" component={BarcodeScreen}>
-                </Stack.Screen>
+                <Stack.Screen name="BarcodeScreen" component={BarcodeScreen}/>
+
+                {/* <Stack.Screen name="Methods" component={Methods} /> */}
                 {/*<Stack.Screen name="Search" component={Search} />*/}
 
             </Stack.Navigator>

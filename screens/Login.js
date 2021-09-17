@@ -106,7 +106,7 @@ export default function Login({ navigation }) {
                                 .then((userCredential) => {
                                     // Signed in 
                                     const user = userCredential.user;
-                                    console.log(user);
+                                    //console.log(user);
                                     navigation.navigate('Welcome');
                                     // ...
                                 })
@@ -211,81 +211,3 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
 
     );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <TextInput
-                        style={styles.input}
-                        placeholder='E-mail'
-                        placeholderTextColor="#aaaaaa"
-                        onChangeText={(text) => setEmail(text)}
-                        value={email}
-                        underlineColorAndroid="transparent"
-                        autoCapitalize="none"
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholderTextColor="#aaaaaa"
-                        secureTextEntry
-                        placeholder='Password'
-                        onChangeText={(text) => setPassword(text)}
-                        value={password}
-                        underlineColorAndroid="transparent"
-                        autoCapitalize="none"
-                    />
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => {
-                            auth.signInWithEmailAndPassword(email, password)
-                                .then((userCredential) => {
-                                    // Signed in 
-                                    const user = userCredential.user;
-                                    console.log(user);
-                                    setEmail('');
-                                    setPassword('');
-                                    navigation.navigate('Welcome');
-                                    // ...
-                                })
-                                .catch((error) => {
-                                    const errorCode = error.code;
-                                    const errorMessage = error.message;
-                                    console.log(errorCode, errorMessage);
-                                    alert(
-                                        errorMessage,
-                                        'Please try again',
-                                        [{
-                                            text: 'Try Again',
-                                            onPress: () => console.log('error message displayed')
-                                        }]
-                                    )
-                                });
-                        }}>
-                        <Text style={styles.buttonTitle}>Log in</Text>
-                    </TouchableOpacity> */}

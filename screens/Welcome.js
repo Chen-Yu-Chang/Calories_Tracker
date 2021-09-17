@@ -42,8 +42,8 @@ const Welcome = ({ navigation, route }) => {
 
                         <Line />
 
-                        <StyledButton onPress={() => navigation.navigate('Methods')}>  
-                            <ButtonText>Start</ButtonText></StyledButton>
+                        <StyledButton onPress={() => navigation.navigate('BarcodeScreen')}>  
+                            <ButtonText>Scan Items</ButtonText></StyledButton>
                             
                         <StyledButton onPress={() => navigation.navigate('Login')}>  
                             <ButtonText>Logout</ButtonText></StyledButton>
