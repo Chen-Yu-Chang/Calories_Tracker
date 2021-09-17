@@ -50,6 +50,11 @@ Our design of the app is using _React Native Expo_ for both the frontend and the
 
 ## Installation
 
+When downloading the project to local, first
+```
+npm install
+```
+
 ## Demo Video
 
 ## Reference
