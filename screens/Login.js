@@ -45,9 +45,6 @@ import styles from '../styles/styles';
 
 export default function Login({ navigation }) {
 
-    const [email, setEmail] = useState(0);
-    const [password, setPassword] = useState(0);
-
     // Byron's Constants
     const [hidePassword, setHidePassword] = useState(true);
     const [message, setMessage] = useState();
@@ -77,7 +74,7 @@ export default function Login({ navigation }) {
 
             if (type == 'success'){
                 const { email, name, photoUrl} = user;
-                handleMessage('Google signin successfule', 'SUCCESS');
+                handleMessage('Google signin successful', 'SUCCESS');
                 setTimeout(()=> navigation.navigate('Welcome', {email, name, photoUrl}), 1000);
             } else{
                 handleMessage('Google signin was cancelled.');

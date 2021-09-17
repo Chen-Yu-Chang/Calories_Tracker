@@ -17,11 +17,15 @@ import {
     WelcomeImage,
     Avatar,
 
-
 } from "../styles/global";
 
 
-const Welcome = ({ navigation }) => {
+const Welcome = ({ navigation, route }) => {
+
+    // Ask about the Json file that is displayed in Login withe user information
+    //const { name, email, photoUrl } = route.params;
+    //const AvatarImg = photoUrl ? {uri: photoUrl} : require('../assets/welcome.png');
+
     return (
         <>
             <StatusBar style="dark" />
@@ -30,14 +34,16 @@ const Welcome = ({ navigation }) => {
                 <WelcomeContainer>
 
                     <PageTitle welcome={true}> Welcome! </PageTitle>
+                    {/* <SubTitle welcome={true}>{name || 'Byron Mitchell'}</SubTitle>
+                    <SubTitle welcome={true}>{email || 'byronmit@bu.edu'}</SubTitle> */}
 
                     <StyledFormArea>
-                        <Avatar resizeMode='cover' source={require('../assets/scan.png')} />
+                        <Avatar resizeMode='cover' source={require('../assets/welcome.png')} />
 
                         <Line />
 
-                        <StyledButton onPress={() => navigation.navigate('Recipe')}>
-                            <ButtonText>Start</ButtonText>
+                        <StyledButton onPress={() => navigation.navigate('Login')}>  
+                            <ButtonText>Logout</ButtonText>
 
                         </StyledButton>
 
