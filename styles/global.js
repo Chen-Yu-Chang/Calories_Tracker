@@ -154,6 +154,7 @@ export const ButtonText = styled.Text`
 export const MsgBox = styled.Text`
   text-align: center;
   font-size 13px;
+  color: ${(props) => (props.type == 'SUCCESS' ? green: red)};
 `;
 
 export const Line = styled.View`
@@ -189,33 +190,3 @@ export const TextLinkContent = styled.Text`
   color: ${brand};
   font-size: 15px;
 `;
-
-
-
-
-
-
-
-
-
-// export const globalStyles = StyleSheet.create({
-
-//   container: {
-//     padding: 50,
-//     flex: 1,
-
-//   },
-
-//   titleText: {
-//     fontFamily: 'source-light',
-//     fontSize: 20,
-//     color: '#333',
-
-//   },
-
-//   paraghText: {
-//       marginVertical: 8,
-//       lineHeight: 20,
-//   }
-
-// });
