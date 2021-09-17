@@ -18,6 +18,10 @@ EC463 Software Mini Project - Teammates: Chen-Yu Chang, Byron Mitchell
 
 [Food Data Central API](https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY)
 
-More info on Food Data Central
+More information on Food Data Central
 
 * [Food Data Central Guide](https://fdc.nal.usda.gov/api-guide.html)
+
+## App Overview
+
+Our design of the app is using _React Native Expo_ for both the frontend and the backend design.
