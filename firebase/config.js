@@ -32,9 +32,9 @@ if (firebase.apps.length === 0) {
 }
 
 //db serves as database
-const store = app.firestore();
+const db = app.firestore();
 //auth serves as authentication
 const auth = firebase.auth();
 
 //export db, auth, and provider
-export { store, auth};
+export { db, auth};
