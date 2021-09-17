@@ -1,4 +1,4 @@
-![GitHub contributors](https://img.shields.io/github/contributors/Chen-Yu-Chang/Calories_Tracker?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/Chen-Yu-Chang/Calories_Tracker?logo=Github&style=for-the-badge)
 
 # Calories_Tracker
 
