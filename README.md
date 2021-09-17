@@ -28,14 +28,14 @@ Our design of the app is using _React Native Expo_ for both the frontend and the
 
 ### Screens Functionality
 
-* Login Page: 
+* __Login Page__: 
     * This page allows users to log in to their own account.
     * If the users do not have an account yet, press the sign up button to create an individual account.
     * We also provide sign in method using Google account.
 
-* Sign Up Page:
+* __Sign Up Page__:
     * This page allows new users to create their own account with their email and password.
     * After creating account, we will navigate them to the login page to check if the account is successfully created.
 
-* Welcome Page: 
+* __Welcome Page__: 
     * We welcome all users to come back to our app, and they can start the functionality of the app when they press the start button.
