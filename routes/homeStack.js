@@ -28,7 +28,8 @@ const HomeStack = () => {
                 <Stack.Screen name ="SignUp" component={SignUp} />
                 <Stack.Screen name="Welcome" component={Welcome} /> 
                 <Stack.Screen name="Methods" component={Methods} />
-                <Stack.Screen name="BarcodeScreen" component={BarcodeScreen} />
+                <Stack.Screen name="BarcodeScreen" component={BarcodeScreen}>
+                </Stack.Screen>
                 {/*<Stack.Screen name="Search" component={Search} />*/}
 
             </Stack.Navigator>
