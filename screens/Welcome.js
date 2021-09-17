@@ -42,10 +42,11 @@ const Welcome = ({ navigation, route }) => {
 
                         <Line />
 
+                        <StyledButton onPress={() => navigation.navigate('Methods')}>  
+                            <ButtonText>Start</ButtonText></StyledButton>
+                            
                         <StyledButton onPress={() => navigation.navigate('Login')}>  
-                            <ButtonText>Logout</ButtonText>
-
-                        </StyledButton>
+                            <ButtonText>Logout</ButtonText></StyledButton>
 
                     </StyledFormArea>
 
