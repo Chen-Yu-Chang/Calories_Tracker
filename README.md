@@ -47,3 +47,9 @@ Our design of the app is using _React Native Expo_ for both the frontend and the
     * This page allows users to scan the food product's barcode and it triggers the api to search from the food data central.
     * This also returns the food name of the product and its calories.
     * When scanning the next item, users can press scan again button.
+
+## Installation
+
+## Demo Video
+
+## Reference
