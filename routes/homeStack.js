@@ -14,8 +14,8 @@ import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
 import Welcome from '../screens/Welcome';
 import Methods from '../screens/Methods';
-import Barcode from '../screens/Barcode';
-import Search from '../screens/Search';
+import BarcodeScreen from '../screens/BarcodeScreen';
+//import Search from '../screens/Search';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,8 +28,8 @@ const HomeStack = () => {
                 <Stack.Screen name ="SignUp" component={SignUp} />
                 <Stack.Screen name="Welcome" component={Welcome} /> 
                 <Stack.Screen name="Methods" component={Methods} />
-                <Stack.Screen name="Barcode" component={Barcode} />
-                <Stack.Screen name="Search" component={Search} />
+                <Stack.Screen name="BarcodeScreen" component={BarcodeScreen} />
+                {/*<Stack.Screen name="Search" component={Search} />*/}
 
             </Stack.Navigator>
         </NavigationContainer>
@@ -39,18 +39,3 @@ const HomeStack = () => {
 }
     
 export default HomeStack;
-
-
-// screenOptions={{
-//     headerStyled: {
-//         backgroundColor: 'transparent'
-//     },
-//     headerTintColor: tertiary,
-//     headerTransparent: true,
-//     headerTitle: '',
-//     headerLeftContainerStyle: {
-//         paddingLeft: 20
-//     }
-    
-// }}
-// initialRouteName="HomePage"
