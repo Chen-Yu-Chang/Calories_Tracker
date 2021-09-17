@@ -39,3 +39,11 @@ Our design of the app is using _React Native Expo_ for both the frontend and the
 
 * __Welcome Page__: 
     * We welcome all users to come back to our app, and they can start the functionality of the app when they press the start button.
+
+* __Method Page__ :
+    * This page takes you to the button that can start scanning your products.
+
+* __Barcode Page__:
+    * This page allows users to scan the food product's barcode and it triggers the api to search from the food data central.
+    * This also returns the food name of the product and its calories.
+    * When scanning the next item, users can press scan again button.
