@@ -22,7 +22,7 @@ const HomeStack = () => {
 
         <NavigationContainer>
             <Stack.Navigator>   
-                <Stack.Screen name = "HomePage" component={HomePage} />
+                {/* <Stack.Screen name = "HomePage" component={HomePage} /> */}
                 <Stack.Screen name ="Login" component={Login} />
                 <Stack.Screen name ="SignUp" component={SignUp} />
                 <Stack.Screen name="Welcome" component={Welcome} /> 

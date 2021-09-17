@@ -78,7 +78,7 @@ export default function SignUp({ navigation }) {
                                     'Please log in now',
                                     [{
                                         text: 'Go back to Log In',
-                                        onPress: () => navigation.navigate("HomePage")
+                                        onPress: () => navigation.navigate("Login")
                                     }]
                                 )
 
