@@ -180,7 +180,7 @@ export default function Login({ navigation }) {
 
                             <ExtraView>
                                 <ExtraText>Don't have an account already? </ExtraText>
-                                <TextLink onPress={() => navigation.navigate("Signup")}>
+                                <TextLink onPress={() => navigation.navigate("SignUp")}>
                                     <TextLinkContent>Signup</TextLinkContent>
                                 </TextLink>
 
@@ -214,6 +214,23 @@ const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ..
 
     );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
