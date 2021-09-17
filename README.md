@@ -20,4 +20,4 @@ EC463 Software Mini Project - Teammates: Chen-Yu Chang, Byron Mitchell
 
 More info on Food Data Central
 
-[Food Data Central Guide](https://fdc.nal.usda.gov/api-guide.html)
+* [Food Data Central Guide](https://fdc.nal.usda.gov/api-guide.html)
