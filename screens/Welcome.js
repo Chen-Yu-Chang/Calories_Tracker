@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { StatusBar } from "expo-status-bar";
 
 // icons
@@ -19,12 +19,25 @@ import {
 
 } from "../styles/global";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CredentialsContext } from '../styles/CredentialContext';
 
 const Welcome = ({ navigation, route }) => {
 
     // Ask about the Json file that is displayed in Login withe user information
     //const { name, email, photoUrl } = route.params;
     //const AvatarImg = photoUrl ? {uri: photoUrl} : require('../assets/welcome.png');
+
+    const {storedCredentials, setStoredCredentials} = useContext(CredentialsContext);
+
+    const ClearLogin = () => {
+        AsyncStorage
+            .removeItem('ScanToKnowCredentials')
+            .then(() => {
+                setStoredCredentials("");
+            })
+            .catch( error => console.log(error))
+    }
 
     return (
         <>
@@ -44,8 +57,8 @@ const Welcome = ({ navigation, route }) => {
 
                         <StyledButton onPress={() => navigation.navigate('BarcodeScreen')}>  
                             <ButtonText>Scan Items</ButtonText></StyledButton>
-                            
-                        <StyledButton onPress={() => navigation.navigate('Login')}>  
+
+                        <StyledButton onPress={ClearLogin}>  
                             <ButtonText>Logout</ButtonText></StyledButton>
 
                     </StyledFormArea>

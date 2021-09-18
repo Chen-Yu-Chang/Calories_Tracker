@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StatusBar } from "expo-status-bar";
 import { TouchableOpacity, Text, View, TextInput, Image, Alert } from 'react-native';
 
@@ -39,10 +39,12 @@ import { Octicons, Ionicons, Fontisto} from '@expo/vector-icons';
 // formik 
 import { Formik } from "formik";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CredentialsContext } from '../styles/CredentialContext';
+
 // Partner's BackeEnd?
 const axios = require("axios");
 import auth from "../firebase/config";
-import styles from '../styles/styles';
 
 const axiosConfig = {
     headers: {
@@ -55,6 +57,29 @@ const axiosConfig = {
 export default function SignUp({ navigation }) {
 
     const [hidePassword, setHidePassword] = useState(true);
+    const [message, setMessage] = useState();
+    const [messageType, setmessageType] = useState();
+
+    const handleMessage = (message, type = 'FAILED') => {
+        setMessage(message);
+        setmessageType(type);
+    }
+
+    const {storedCredentials, setStoredCredentials} = useContext(CredentialsContext);
+
+    // to be kept logged in 
+    const persistLogin = (credentials, message, status) => {
+        AsyncStorage
+            .setItem('ScanToKnowCredentials', JSON.stringify(credentials))
+            .then(() => {
+                handleMessage(message, status);
+                setStoredCredentials(credentials);
+            })
+            .catch((error) => {
+                console.log(error);
+                handleMessage('Persisting Login failed');
+            })
+    }
 
     return (
         <KeyboardAvoidingWrapper>
@@ -73,14 +98,7 @@ export default function SignUp({ navigation }) {
                                 // Signed in 
                                 const user = userCredential.user;
                                 console.log(user);
-                                Alert.alert(
-                                    'Registration succeeded',
-                                    'Please log in now',
-                                    [{
-                                        text: 'Go back to Log In',
-                                        onPress: () => navigation.navigate("Login")
-                                    }]
-                                )
+                                persistLogin(userCredential, message, 'SUCCESS');
 
                             })
                             .catch( (error) => {
@@ -104,6 +122,7 @@ export default function SignUp({ navigation }) {
                             <MyTextInput 
                                 label="Email Address" 
                                 icon="mail"
+                                autoCapitalize="none"
                                 placeholder="john@doe.com"
                                 placeholderTextColor={darkLight}
                                 onChangeText = {handleChange('email')}
@@ -117,6 +136,7 @@ export default function SignUp({ navigation }) {
                                 label="Password" 
                                 icon="lock"
                                 placeholder="* * * * * * * * *"
+                                autoCapitalize="none"
                                 placeholderTextColor={darkLight}
                                 onChangeText = {handleChange('password')}
                                 onBlur={handleBlur('password')}
@@ -172,75 +192,3 @@ const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ..
 
     );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// return (
-//     <View>
-//         <TextInput
-//             style={styles.input}
-//             placeholder='E-mail'
-//             placeholderTextColor="#aaaaaa"
-//             onChangeText={(text) => setEmail(text)}
-//             value={email}
-//             underlineColorAndroid="transparent"
-//             autoCapitalize="none"
-//         />
-//         <TextInput
-//             style={styles.input}
-//             placeholderTextColor="#aaaaaa"
-//             secureTextEntry
-//             placeholder='Password'
-//             onChangeText={(text) => setPassword(text)}
-//             value={password}
-//             underlineColorAndroid="transparent"
-//             autoCapitalize="none"
-//         />
-//         <TouchableOpacity
-//             style={styles.button}
-//             onPress={() => {
-//                 auth.createUserWithEmailAndPassword(email, password)
-//                     .then((userCredential) => {
-//                         // Signed in 
-//                         const user = userCredential.user;
-//                         console.log(user);
-//                         Alert.alert(
-//                             'Registration succeeded',
-//                             'Please log in now',
-//                             [{
-//                                 text: 'Go back to Log In',
-//                                 onPress: () => navigation.navigate("Home page")
-//                             }]
-//                         )
-
-//                     })
-//                     .catch((error) => {
-//                         const errorCode = error.code;
-//                         const errorMessage = error.message;
-//                         console.log(errorCode, errorMessage);
-//                         Alert.alert(
-//                             errorMessage,
-//                             'Please try again',
-//                             [{
-//                                 text: 'Try Again',
-//                                 onPress: () => console.log('error message displayed')
-//                             }]
-//                         )
-//                         // ..
-//                     });
-//             }}>
-//             <Text style={styles.buttonTitle}>Register</Text>
-//         </TouchableOpacity>
-//     </View>
-// );

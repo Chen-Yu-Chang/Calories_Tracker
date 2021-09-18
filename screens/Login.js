@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TouchableOpacity, Text, View, TextInput, Image, ActivityIndicator, Button, StyleSheet } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import {
@@ -39,9 +39,12 @@ import KeyboardAvoidingWrapper from "../styles/keyboardavoid";
 // Google
 import * as Google from 'expo-google-app-auth';
 
-// Partner's Import 
+// For the user to be kept logged in
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CredentialsContext } from '../styles/CredentialContext';
+
+// authentication with firevbase
 import auth from "../firebase/config";
-import styles from '../styles/styles';
 
 export default function Login({ navigation }) {
 
@@ -49,6 +52,9 @@ export default function Login({ navigation }) {
     const [hidePassword, setHidePassword] = useState(true);
     const [message, setMessage] = useState();
     const [messageType, setmessageType] = useState();
+    const [googleSubmitting, setGoogleSubmitting] = useState(false);
+
+    const {storedCredentials, setStoredCredentials} = useContext(CredentialsContext);
 
     const handleMessage = (message, type = 'FAILED') => {
         setMessage(message);
@@ -56,8 +62,6 @@ export default function Login({ navigation }) {
     }
 
     // Google Sign In 
-    const [googleSubmitting, setGoogleSubmitting] = useState(false);
-
     const handleGoogleSignIn = () => {
 
         setGoogleSubmitting(true);
@@ -74,8 +78,7 @@ export default function Login({ navigation }) {
 
                 if (type == 'success') {
                     const { email, name, photoUrl } = user;
-                    handleMessage('Google signin successful', 'SUCCESS');
-                    setTimeout(() => navigation.navigate('Welcome', { email, name, photoUrl }), 1000);
+                    persistLogin({ email, name, photoUrl }, 'Google signin successful', 'SUCCESS');
                 } else {
                     handleMessage('Google signin was cancelled.');
                 }
@@ -87,6 +90,20 @@ export default function Login({ navigation }) {
                 handleMessage('An error occurred. Check your network and try again');
                 setGoogleSubmitting(false);
             });
+    }
+
+    // to be kept logged in 
+    const persistLogin = (credentials, message, status) => {
+        AsyncStorage
+            .setItem('ScanToKnowCredentials', JSON.stringify(credentials))
+            .then(() => {
+                handleMessage(message, status);
+                setStoredCredentials(credentials);
+            })
+            .catch((error) => {
+                console.log(error);
+                handleMessage('Persisting Login failed');
+            })
     }
 
     return (
@@ -106,9 +123,8 @@ export default function Login({ navigation }) {
                                 .then((userCredential) => {
                                     // Signed in 
                                     const user = userCredential.user;
-                                    //console.log(user);
-                                    navigation.navigate('Welcome');
-                                    // ...
+                                    // navigation.navigate('Welcome');
+                                    persistLogin(userCredential, message, 'SUCCESS');
                                 })
                                 .catch((error) => {
                                     const errorCode = error.code;
@@ -130,6 +146,7 @@ export default function Login({ navigation }) {
                         <MyTextInput
                             label="Email Address"
                             icon="mail"
+                            autoCapitalize="none"
                             placeholder="john@doe.com"
                             placeholderTextColor={darkLight}
                             onChangeText={handleChange('email')}
@@ -143,6 +160,7 @@ export default function Login({ navigation }) {
                             label="Password"
                             icon="lock"
                             placeholder="* * * * * * * * *"
+                            autoCapitalize="none"
                             placeholderTextColor={darkLight}
                             onChangeText={handleChange('password')}
                             onBlur={handleBlur('password')}

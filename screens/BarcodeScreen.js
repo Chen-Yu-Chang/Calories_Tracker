@@ -20,11 +20,6 @@ import {
 
 
 
-
-
-
-var cal_total = 0;
-var food_name = "";
 //Barcode function 
 const BarcodeScreen = () => {
     //Initializing permissions for the barcode scanner
@@ -66,7 +61,7 @@ const BarcodeScreen = () => {
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
         // setText(data);
-        console.log('Type: ' + type + '\nData: ' + data)
+        //console.log('Type: ' + type + '\nData: ' + data)
         
         Alert.alert("Barcode scanned!");
         
@@ -134,4 +129,4 @@ const styles = StyleSheet.create({
 
 });
 
-export { BarcodeScreen as default, cal_total, food_name };
+export default BarcodeScreen;
