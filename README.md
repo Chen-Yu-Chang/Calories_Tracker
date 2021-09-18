@@ -90,6 +90,9 @@ expo install formik
 ```
 expo install @expo/vector-icons
 ```
+```
+expo install @react-native-async-storage/async-storage
+```
 Then, run
 ```
 expo start
