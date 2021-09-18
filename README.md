@@ -54,7 +54,42 @@ When downloading the project to local, first
 ```
 npm install
 ```
-
+```
+expo install @react-navigation/native-stack
+```
+```
+expo install @react-navigation/native
+```
+```
+expo install react-native-screens
+```
+```
+expo install styled-components
+```
+```
+expo install firebase
+```
+```
+expo install expo-barcode-scanner
+```
+```
+expo install axios
+```
+```
+expo install expo-status-bar
+```
+```
+expo-google-app-auth
+```
+```
+expo install expo-google-sign-in
+```
+```
+expo install formik
+```
+```
+expo install @expo/vector-icons
+```
 ## Demo Video
 
 ## Reference
