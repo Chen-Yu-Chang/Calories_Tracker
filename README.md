@@ -39,6 +39,7 @@ Our design of the app is using _React Native Expo_ for both the frontend and the
 
 * __Welcome Page__: 
     * We welcome all users to come back to our app, and they can start the functionality of the app when they press the start button.
+    * We designed that when the user entered the welcome page, there is a logout button to log out, while this is the only way to return back to the login page.
 
 * __Method Page__ :
     * This page takes you to the button that can start scanning your products.
