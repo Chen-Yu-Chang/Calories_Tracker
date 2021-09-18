@@ -90,6 +90,12 @@ expo install formik
 ```
 expo install @expo/vector-icons
 ```
+Then, run
+```
+expo start
+```
+Scan the qrcode from app _expo go_
+
 ## Demo Video
 
 ## Reference
