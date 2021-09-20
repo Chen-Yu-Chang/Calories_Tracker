@@ -102,4 +102,8 @@ Scan the qrcode from app _expo go_
 
 ## Demo Video
 
-## Reference
+- Youtube Link: https://www.youtube.com/watch?v=gcmJ_SF6JSU
+
+<div align="center">
+<p>Calories Scanner</p>
+<a href="https://www.youtube.com/embed/gcmJ_SF6JSU"><img src="https://img.youtube.com/vi/gcmJ_SF6JSU/0.jpg" alt="IMAGE ALT TEXT"></a>
