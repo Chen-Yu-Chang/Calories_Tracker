@@ -18,7 +18,8 @@ import {
 
 } from "../styles/global";
 
-
+var food = "";
+var calories = 0;
 
 //Barcode function 
 const BarcodeScreen = () => {
@@ -76,6 +77,8 @@ const BarcodeScreen = () => {
                     setText('Food: ' + data.foods[0].brandName + '\nCalories: ' + data.foods[0].foodNutrients[3].value)
                     //Add data to database
                     addData(data);
+                    calories = calories + data.foods[0].foodNutrients[3].value;
+                    food = data.foods[0].brandName;
                 })
     }
 
@@ -125,4 +128,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default BarcodeScreen;
+export {BarcodeScreen as default, calories, food}

@@ -14,6 +14,7 @@ import Login from '../screens/Login';
 import SignUp from '../screens/SignUp';
 import Welcome from '../screens/Welcome';
 import BarcodeScreen from '../screens/BarcodeScreen';
+import Recipe from '../screens/Recipe'
 
 //credentials context
 import { CredentialsContext } from '../styles/CredentialContext';
@@ -44,6 +45,7 @@ const HomeStack = () => {
                     {storedCredentials ? (<>
                             <Stack.Screen name="Welcome" component={Welcome} />
                             <Stack.Screen name="BarcodeScreen" component={BarcodeScreen}/>
+                            <Stack.Screen name="Recipe" component={Recipe} />
                         </>
                         ) : (
                             <>
