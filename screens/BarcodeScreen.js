@@ -22,7 +22,7 @@ import {
 
 //Barcode function 
 const BarcodeScreen = () => {
-    //Initializing permissions for the barcode scanner
+    
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState('Not yet scanned');
@@ -30,7 +30,7 @@ const BarcodeScreen = () => {
     const askForCameraPermission = () => {
         (async () => {
             const { status } = await BarCodeScanner.requestPermissionsAsync();
-            //Updated the status to granted...allows user to use barcode scanner
+            
             setHasPermission(status === 'granted');
         })();
 
@@ -47,7 +47,7 @@ const BarcodeScreen = () => {
             </View>
         )
     }
-    //If the user's permission is false...text informs user no camera permission
+    
     if (hasPermission === false) {
         return (
             <View style={styles.container}>
@@ -60,12 +60,9 @@ const BarcodeScreen = () => {
     // Funcions to handle scanned state
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        // setText(data);
-        //console.log('Type: ' + type + '\nData: ' + data)
         
         Alert.alert("Barcode scanned!");
         
-        //Function will call FDA API with data
         API(data.substring(1));
     };
 
@@ -82,14 +79,13 @@ const BarcodeScreen = () => {
                 })
     }
 
-    //addData method will add the .json file to the Firestore database
+    //add the .json file to Firestore database
     addData = (data) => {
-        //All entries placed in food_items collection
+        //food_items collection
         store.collection('food_items')
             .add(data)
     }
 
-    //Return will just be full camera view with number pad after scan
     return (
         <View style={styles.container}>
             <View style={styles.barcodebox}>
