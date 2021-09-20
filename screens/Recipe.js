@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { auth } from '../firebase/config';
 import { calories, food } from './BarcodeScreen';
 import {
@@ -20,45 +20,17 @@ import {
 const Recipe = ({ navigation, route }) => {
 
     return (
-        <View>
-            <Text style={styles.body2}>
+        <SafeAreaView>
+            <SubTitle>
                 Total Calories: {calories}
-            </Text>
-            <Text style={styles.body2}>
+            </SubTitle>
+            <SubTitle>
                 Food: {food}
-            </Text>
+            </SubTitle>
             <StyledButton onPress={() => navigation.navigate('BarcodeScreen')}>
                 <ButtonText>Scan Items</ButtonText></StyledButton>
-        </View>
+        </SafeAreaView>
     )
 }
-
-styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    title: {
-        fontSize: 32,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginBottom: 20,
-        marginTop: 40
-    },
-    body: {
-        fontSize: 30,
-        textAlign: 'center',
-        marginTop: 40,
-        marginBottom: 20
-    },
-    body2: {
-        fontSize: 25,
-        textAlign: 'left',
-        marginTop: 100
-    }
-});
 
 export default Recipe;
