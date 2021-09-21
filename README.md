@@ -42,12 +42,15 @@ Our design of the app is using _React Native Expo_ for both the frontend and the
     * We designed that when the user entered the welcome page, there is a logout button to log out, while this is the only way to return back to the login page.
 
 * __Method Page__ :
-    * This page takes you to the button that can start scanning your products.
+    * This page takes you to the button that can start making your recipe.
 
 * __Barcode Page__:
     * This page allows users to scan the food product's barcode and it triggers the api to search from the food data central.
     * This also returns the food name of the product and its calories.
     * When scanning the next item, users can press scan again button.
+
+* __Recipe Page__:
+    * This page allows users to link to scan the items and record the total calories of the recipe with the most recent ingredient shown.
 
 ## Installation
 
@@ -102,8 +105,8 @@ Scan the qrcode from app _expo go_
 
 ## Demo Video
 
-- Youtube Link: https://www.youtube.com/watch?v=gcmJ_SF6JSU
+- Youtube Link: https://www.youtube.com/watch?v=gnMLFGyMUzo
 
 <div align="center">
 <p>Calories Scanner</p>
-<a href="https://www.youtube.com/embed/gcmJ_SF6JSU"><img src="https://img.youtube.com/vi/gcmJ_SF6JSU/0.jpg" alt="IMAGE ALT TEXT"></a>
+<a href="https://www.youtube.com/embed/gnMLFGyMUzo"><img src="https://img.youtube.com/vi/gnMLFGyMUzo/0.jpg" alt="IMAGE ALT TEXT"></a>
